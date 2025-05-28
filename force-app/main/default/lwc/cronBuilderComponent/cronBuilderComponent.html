@@ -1,0 +1,119 @@
+<template>
+  <lightning-card title="Cron String Builder" icon-name="utility:clock">
+    <div class="c-container">
+      <lightning-layout horizontal-align="space">
+        <div class="slds-text-title_bold strong-border">{cronString}</div>
+      </lightning-layout>
+      <lightning-layout multiple-rows="true" class="slds-p-around_medium">
+        <!-- Year Selection -->
+        <lightning-layout-item size="12">
+          <c-cron-selection-component
+            data-id="year_selection_component"
+            selection-types={yearSelectionTypes}
+            unit-type={yearUnitType}
+            unit-range={yearUnitRage}
+            oncronchange={handleYearChange}
+          >
+          </c-cron-selection-component>
+        </lightning-layout-item>
+
+        <!-- Month Selection -->
+        <lightning-layout-item size="12">
+          <c-cron-selection-component
+            data-id="month_selection_component"
+            selection-types={monthSelectionTypes}
+            unit-type={monthUnitType}
+            unit-range={monthUnitRange}
+            oncronchange={handleMonthChange}
+          >
+          </c-cron-selection-component>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="3" class="slds-p-horizontal_small">
+          <lightning-combobox
+            data-id="day_type_selection"
+            class="input_base"
+            name="day_type_selection"
+            label="Day Type Selection"
+            placeholder="Day Type Selection"
+            options={dayPicklistOptions}
+            onchange={handleDayPicklistOptionChange}
+            required="true"
+          >
+          </lightning-combobox>
+        </lightning-layout-item>
+
+        <!-- Week Day Selection -->
+        <template if:true={showWeekDay}>
+          <lightning-layout-item size="12">
+            <c-cron-selection-component
+              data-id="weekday_selection_component"
+              selection-types={weekDaySelectionTypes}
+              unit-type={weekDayUnitType}
+              unit-range={weekDayUnitRange}
+              last-override="true"
+              oncronchange={handleWeekDayChange}
+            >
+            </c-cron-selection-component>
+          </lightning-layout-item>
+        </template>
+
+        <!-- Day Selection -->
+        <template if:true={showMonthDay}>
+          <lightning-layout-item size="12">
+            <c-cron-selection-component
+              data-id="day_selection_component"
+              selection-types={daySelectionTypes}
+              unit-type={dayUnitType}
+              unit-range={dayUnitRange}
+              oncronchange={handleDayChange}
+            >
+            </c-cron-selection-component>
+          </lightning-layout-item>
+        </template>
+
+        <!-- Hour Selection -->
+        <lightning-layout-item size="12">
+          <c-cron-selection-component
+            data-id="hour_selection_component"
+            selection-types={hourSelectionTypes}
+            unit-type={hourUnitType}
+            unit-range={hourUnitRange}
+            oncronchange={handleHourChange}
+          >
+          </c-cron-selection-component>
+        </lightning-layout-item>
+
+        <!-- Minute Selection -->
+        <lightning-layout-item size="3" class="slds-p-horizontal_small">
+          <lightning-combobox
+            data-id="minute_selection"
+            class="input_base"
+            name="minute_selection"
+            label="Minute"
+            placeholder="Minute"
+            options={minuteOptions}
+            onchange={handleMinuteChange}
+            required="true"
+          >
+          </lightning-combobox>
+        </lightning-layout-item>
+
+        <!-- Second Selection -->
+        <lightning-layout-item size="3" class="slds-p-horizontal_small">
+          <lightning-combobox
+            data-id="second_selection"
+            class="input_base"
+            name="second_selection"
+            label="Second"
+            placeholder="Second"
+            options={secondOptions}
+            onchange={handleSecondChange}
+            required="true"
+          >
+          </lightning-combobox>
+        </lightning-layout-item>
+      </lightning-layout>
+    </div>
+  </lightning-card>
+</template>

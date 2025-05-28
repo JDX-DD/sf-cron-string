@@ -1,0 +1,13 @@
+.selection-type-class{
+    min-width: 15rem;
+}
+.input_base{
+    min-width: 10rem;
+}
+.container-override{
+    padding: 1rem;
+}
+
+.slds-form-element__help{
+    margin: 0;
+}

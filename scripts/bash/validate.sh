@@ -1,0 +1,1 @@
+sf project deploy validate --source-dir cron-string-builder
