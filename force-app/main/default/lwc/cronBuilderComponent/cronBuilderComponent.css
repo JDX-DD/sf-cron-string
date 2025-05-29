@@ -1,9 +1,9 @@
 .strong-border {
-    border: 3px solid #747474; /* 3px thick black border */
-    padding: 5px; /* Optional: add some padding inside the border */
-    font-size: x-large;
+  border: 3px solid #747474; /* 3px thick black border */
+  padding: 5px; /* Optional: add some padding inside the border */
+  font-size: x-large;
 }
 
-.input_base{
-    min-width: 17rem;
+.input_base {
+  min-width: 17rem;
 }

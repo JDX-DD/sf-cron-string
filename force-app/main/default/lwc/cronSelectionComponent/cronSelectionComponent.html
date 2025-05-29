@@ -1,68 +1,96 @@
 <template>
-        <div class="c-container slds-p-around_small">
-            <lightning-layout vertical-align="start">
-                <lightning-layout-item class="selection-type-class">
-                    <lightning-combobox                    
-                        name="type_selection"
-                        label={sectionTypeLabel}
-                        placeholder={sectionTypeLabel}
-                        options={selectionTypePicklistOptions}
-                        onchange={handleSelectionTypeChange}
-                        data-id="selection_type_picklist"
-                        required="true">
-                    </lightning-combobox>             
-                </lightning-layout-item>
-                <template if:true={showPL1}>
-                    <lightning-layout-item class="input_base slds-align-top slds-p-horizontal_medium">
-                        <lightning-combobox
-                            name="pl1_selection"
-                            label="Start"
-                            options={pl1Options}
-                            onchange={handlePL1Change}
-                            value={pl1Value}
-                            data-id="pl1_picklist"
-                            required="true">
-                        </lightning-combobox> 
-                    </lightning-layout-item>
-                </template>
-                <template if:true={showPL2}>
-                    <lightning-layout-item class="input_base slds-align-top slds-p-horizontal_medium">
-                        <lightning-combobox
-                            name="pl2_selection"
-                            label="End"
-                            options={pl2Options}
-                            onchange={handlePL2Change}
-                            value={pl2Value}
-                            data-id="pl2_picklist" 
-                            required="true">
-                        </lightning-combobox> 
-                    </lightning-layout-item>
-                </template>
-                <template if:true={showNumInput}>
-                    <lightning-layout-item class="input_base slds-align-top slds-p-horizontal_medium slds-p-top_xx-small">
-                        <lightning-input type="number" data-id="num_input" name="numberInput" value={numValue}  max-length="3" onchange={handleNumInputChange} ></lightning-input>   
-                    </lightning-layout-item>
-                </template>
+  <div class="c-container slds-p-around_small">
+    <lightning-layout vertical-align="start">
+      <lightning-layout-item class="selection-type-class">
+        <lightning-combobox
+          name="type_selection"
+          label={sectionTypeLabel}
+          placeholder={sectionTypeLabel}
+          options={selectionTypePicklistOptions}
+          onchange={handleSelectionTypeChange}
+          data-id="selection_type_picklist"
+          required="true"
+        >
+        </lightning-combobox>
+      </lightning-layout-item>
+      <template if:true={showPL1}>
+        <lightning-layout-item
+          class="input_base slds-align-top slds-p-horizontal_medium"
+        >
+          <lightning-combobox
+            name="pl1_selection"
+            label="Start"
+            options={pl1Options}
+            onchange={handlePL1Change}
+            value={pl1Value}
+            data-id="pl1_picklist"
+            required="true"
+          >
+          </lightning-combobox>
+        </lightning-layout-item>
+      </template>
+      <template if:true={showPL2}>
+        <lightning-layout-item
+          class="input_base slds-align-top slds-p-horizontal_medium"
+        >
+          <lightning-combobox
+            name="pl2_selection"
+            label="End"
+            options={pl2Options}
+            onchange={handlePL2Change}
+            value={pl2Value}
+            data-id="pl2_picklist"
+            required="true"
+          >
+          </lightning-combobox>
+        </lightning-layout-item>
+      </template>
+      <template if:true={showNumInput}>
+        <lightning-layout-item
+          class="input_base slds-align-top slds-p-horizontal_medium slds-p-top_xx-small"
+        >
+          <lightning-input
+            type="number"
+            data-id="num_input"
+            name="numberInput"
+            value={numValue}
+            max-length="3"
+            onchange={handleNumInputChange}
+          ></lightning-input>
+        </lightning-layout-item>
+      </template>
 
-                <template if:true={showListInputs}>
-                    <lightning-layout-item class="input_base slds-align-top slds-p-horizontal_medium">
-                        <lightning-combobox
-                            name="list_selection"
-                            label="Start"
-                            options={plListOptions}
-                            onchange={handlePLListChange}
-                            value={listPLValue}
-                            data-id="list_picklist"
-                            required="true">
-                        </lightning-combobox>                     
-                    </lightning-layout-item>
-                </template>
-                <template if:true={showListInputs}>
-                    <lightning-layout-item class="input_base slds-align-top slds-p-horizontal_medium slds-p-top_large">
-                            <lightning-button data-id="list_button" variant="brand" onclick={handleButtonChange} name={btnLabel} label={btnLabel} class="slds-align-top">
-                            </lightning-button>  
-                        </lightning-layout-item>
-                </template>
-            </lightning-layout>
-        </div>
+      <template if:true={showListInputs}>
+        <lightning-layout-item
+          class="input_base slds-align-top slds-p-horizontal_medium"
+        >
+          <lightning-combobox
+            name="list_selection"
+            label="Start"
+            options={plListOptions}
+            onchange={handlePLListChange}
+            value={listPLValue}
+            data-id="list_picklist"
+            required="true"
+          >
+          </lightning-combobox>
+        </lightning-layout-item>
+      </template>
+      <template if:true={showListInputs}>
+        <lightning-layout-item
+          class="input_base slds-align-top slds-p-horizontal_medium slds-p-top_large"
+        >
+          <lightning-button
+            data-id="list_button"
+            variant="brand"
+            onclick={handleButtonChange}
+            name={btnLabel}
+            label={btnLabel}
+            class="slds-align-top"
+          >
+          </lightning-button>
+        </lightning-layout-item>
+      </template>
+    </lightning-layout>
+  </div>
 </template>
