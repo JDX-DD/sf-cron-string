@@ -74,42 +74,40 @@ const buildSelectionString =  (selection_type, pl1Value, pl2Value, numValue, lis
   if (!Object.values(SELECTION_TYPE).includes(selection_type)) {
     throw new Error(`Invalid type. Expected: ${Object.values(SELECTION_TYPE).join(', ')}`);
   }
+  let chronStringSegment = '';
   if (selection_type === SELECTION_TYPE.SINGLE) {
-    //if (pl1Value == null) throw new Error('var1 is required for SINGLE');
-    return `${pl1Value}`;
+    chronStringSegment = `${pl1Value}`;
   }
   if (selection_type === SELECTION_TYPE.RANGE) {
-    //if (pl1Value == null || pl2Value == null) throw new Error('pl1Value and pl2Value are required for RANGE');
-    return `${pl1Value}-${pl2Value}`;
+    chronStringSegment = `${pl1Value}-${pl2Value}`;
   }
   if (selection_type === SELECTION_TYPE.LIST) {
-    //if (!Array.isArray(listValue)) throw new Error('listValue must be an array for LIST');
-    return listArray.join(',');
+    chronStringSegment = listArray.join(',');
   }
   if (selection_type === SELECTION_TYPE.INCREMENT) {
-    //if (pl1Value == null || numValue == null) throw new Error('pl1Value and numValue are required for INCREMENT');
-    return `${pl1Value}/${numValue}`;
+    chronStringSegment = `${pl1Value}/${numValue}`;
   }
   if (selection_type === SELECTION_TYPE.LAST) {
     if(lastOverride){
-      return `${pl1Value}L`;
+      chronStringSegment = `${pl1Value}L`;
     }
-    return 'L';
+    else{
+      chronStringSegment = 'L';
+    }    
   }
   if (selection_type === SELECTION_TYPE.NEAREST) {
-    //if (pl1Value == null) throw new Error('pl1Value is required for NEAREST');
-    return `${pl1Value}W`;
+    chronStringSegment = `${pl1Value}W`;
   }
   if (selection_type === SELECTION_TYPE.NTH) {
-    //if (pl1Value == null || numValue == null) throw new Error('pl1Value and numValue are required for NTH');
-    return `${pl1Value}#${numValue}`;
+    chronStringSegment = `${pl1Value}#${numValue}`;
   }
   if (selection_type === SELECTION_TYPE.ALL) {
-    return '*';
+    chronStringSegment = '*';
   }
   if (selection_type === SELECTION_TYPE.NONE) {
-    return '?';
+    chronStringSegment = '?';
   }
+  return chronStringSegment;
 }
 
 export {SELECTION_TYPE, buildUnitOptionPicklist, buildRangePicklistOptions, TYPE_TO_INPUTS,  buildSelectionString};

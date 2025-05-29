@@ -49,25 +49,6 @@ export default class CronSelectionComponent extends LightningElement {
     this.pl1Options = buildRangePicklistOptions(this.unitRange);
     this.pl2Options = buildRangePicklistOptions(this.unitRange);
   }
-
-  handleSelectionTypeChange(event) {
-    this.selectionType = event.detail.value;
-    let requiredInputs = TYPE_TO_INPUTS.get(this.selectionType);
-    if (this.lastOverride) {
-      this.showPL1 = true;
-    } else {
-      this.showPL1 = requiredInputs.picklist_1;
-    }
-    this.showPL2 = requiredInputs.picklist_2;
-    this.showNumInput = requiredInputs.integer_input;
-    this.showListInputs = requiredInputs.list_inputs;
-    this.buildCronStringSegment();
-  }
-
-  connectedCallback(){
-    this.pl1Options = buildRangePicklistOptions(this.unitRange);
-    this.pl2Options = buildRangePicklistOptions(this.unitRange);
-  }
     
   handleSelectionTypeChange(event){
     this.selectionType = event.detail.value        
@@ -112,7 +93,7 @@ export default class CronSelectionComponent extends LightningElement {
 
   
 
-  handleButtonChange(event) {
+  handleButtonChange() {
     if (!this.listArray.includes(this.listPLValue)) {
       this.listArray.push(this.listPLValue);
       this.listArray.sort((a, b) => a - b);

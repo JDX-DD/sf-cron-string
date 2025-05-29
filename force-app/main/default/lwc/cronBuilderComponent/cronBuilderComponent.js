@@ -39,13 +39,13 @@ export default class CronBuilderComponent extends LightningElement {
     }
 
     handleDayPicklistOptionChange(event){
-        if(event.detail.value == 'MonthDay'){
+        if(event.detail.value === 'MonthDay'){
             this.cronStringSegments[5] = '?';
             this.showWeekDay = false;
             this.showMonthDay = true;
             this.buildCronString();
         }
-        else if(event.detail.value == 'WeekDay'){
+        else if(event.detail.value === 'WeekDay'){
             this.cronStringSegments[3] = '?';
             this.showWeekDay = true;
             this.showMonthDay = false;
