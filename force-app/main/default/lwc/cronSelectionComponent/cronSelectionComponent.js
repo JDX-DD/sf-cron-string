@@ -53,7 +53,7 @@ export default class CronSelectionComponent extends LightningElement {
   handleSelectionTypeChange(event) {
     this.selectionType = event.detail.value;
     let requiredInputs = TYPE_TO_INPUTS.get(this.selectionType);
-    if (this.lastOverride) {
+    if (this.lastOverride && this.selectionType === SELECTION_TYPE.LAST) {
       this.showPL1 = true;
     } else {
       this.showPL1 = requiredInputs.picklist_1;
@@ -64,31 +64,13 @@ export default class CronSelectionComponent extends LightningElement {
     this.buildCronStringSegment();
   }
 
-  connectedCallback(){
-    this.pl1Options = buildRangePicklistOptions(this.unitRange);
-    this.pl2Options = buildRangePicklistOptions(this.unitRange);
-  }
-    
-  handleSelectionTypeChange(event){
-    this.selectionType = event.detail.value        
-    let requiredInputs = TYPE_TO_INPUTS.get(this.selectionType);    
-    if(this.lastOverride && this.selectionType === SELECTION_TYPE.LAST){
-        this.showPL1 = true;
-    }
-    else{
-        this.showPL1 = requiredInputs.picklist_1;
-    }            
-    this.showPL2 = requiredInputs.picklist_2; 
-    this.showNumInput = requiredInputs.integer_input;  
-    this.showListInputs = requiredInputs.list_inputs;
-    this.buildCronStringSegment()
-  }
-
-  handlePL1Change(event){
+  handlePL1Change(event) {
     this.pl1Value = event.detail.value;
-    const startIndex = this.pl1Options.findIndex(item => item.value === this.pl1Value);
+    const startIndex = this.pl1Options.findIndex(
+      (item) => item.value === this.pl1Value
+    );
     this.pl2Options = this.pl1Options.slice(startIndex);
-    this.buildCronStringSegment()
+    this.buildCronStringSegment();
   }
 
   handlePL2Change(event) {
@@ -110,9 +92,7 @@ export default class CronSelectionComponent extends LightningElement {
     }
   }
 
-  
-
-  handleButtonChange(event) {
+  handleButtonChange() {
     if (!this.listArray.includes(this.listPLValue)) {
       this.listArray.push(this.listPLValue);
       this.listArray.sort((a, b) => a - b);
