@@ -9,26 +9,6 @@
 
 // 'seconds minutes hours day_of_month month day_of_week optional_year'
 
-//EXAMPLE:
-/***********************************
-SchedularStringBuilder.CronSecondsMeta seconds = new SchedularStringBuilder.CronSecondsMeta(0);
-SchedularStringBuilder.CronMinutesMeta minutes = new SchedularStringBuilder.CronMinutesMeta(0);
-SchedularStringBuilder.CronHoursMeta hours = new SchedularStringBuilder.CronHoursMeta(SchedularStringBuilder.ScheduleTypeEnum.SINGLE, 5, null, null);
-SchedularStringBuilder.CronDaysOfMonthMeta daysOfMonth = new SchedularStringBuilder.CronDaysOfMonthMeta(SchedularStringBuilder.ScheduleTypeEnum.RANGE, 5, 10, null, null, null);
-SchedularStringBuilder.CronMonthsMeta months = new SchedularStringBuilder.CronMonthsMeta(SchedularStringBuilder.ALL, null, null, null);
-SchedularStringBuilder.CronDaysOfWeekMeta daysOfWeek = new SchedularStringBuilder.CronDaysOfWeekMeta(SchedularStringBuilder.ScheduleTypeEnum.NONE, null, null, null, null, null, null);
-List<SchedularStringBuilder.CronInfo> cronMeta = new List<SchedularStringBuilder.CronInfo>();
-cronMeta.add(seconds);
-cronMeta.add(minutes);
-cronMeta.add(hours);
-cronMeta.add(daysOfMonth);
-cronMeta.add(months);
-cronMeta.add(daysOfWeek);
-String cronString = SchedularStringBuilder.buildCronString(cronMeta);
-System.debug('Cron String = ' + cronString);
-
-***********************************/
-
 global without sharing class SchedularStringBuilder {
   global enum TimeTypeEnum {
     SECONDS,
