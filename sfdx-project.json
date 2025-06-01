@@ -15,6 +15,7 @@
   "sourceApiVersion": "62.0",
   "packageAliases": {
     "CronString": "0HoKe000000XZAbKAO",
-    "CronString@0.1.0-1": "04tKe000000xAEhIAM"
+    "CronString@0.1.0-1": "04tKe000000xAEhIAM",
+    "CronString@0.1.0-2": "04tKe000000xAJEIA2"
   }
 }

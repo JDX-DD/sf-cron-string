@@ -29,8 +29,8 @@ System.debug('Cron String = ' + cronString);
 
 ***********************************/
 
-public without sharing class SchedularStringBuilder {
-  public enum TimeTypeEnum {
+global without sharing class SchedularStringBuilder {
+  global enum TimeTypeEnum {
     SECONDS,
     MINUTES,
     HOURS,
@@ -40,7 +40,7 @@ public without sharing class SchedularStringBuilder {
     YEAR
   }
 
-  public enum ScheduleTypeEnum {
+  global enum ScheduleTypeEnum {
     SINGLE,
     ALL,
     RANGE,
@@ -52,7 +52,7 @@ public without sharing class SchedularStringBuilder {
     NONE
   }
 
-  public static String buildCronString(List<CronInfo> cronInfos) {
+  global static String buildCronString(List<CronInfo> cronInfos) {
     Map<TimeTypeEnum, CronInfo> cronInfoMap = new Map<TimeTypeEnum, CronInfo>();
     for (CronInfo info : cronInfos) {
       cronInfoMap.put(info.timeType, info);
@@ -91,17 +91,17 @@ public without sharing class SchedularStringBuilder {
     return cronString;
   }
 
-  public virtual class CronInfo {
-    public TimeTypeEnum timeType;
-    public ScheduleTypeEnum scheduleType;
-    public String listValue;
-    public Integer startValue;
-    public Integer endValue;
-    public Integer increment;
-    public Integer nth;
+  global virtual class CronInfo {
+    global TimeTypeEnum timeType;
+    global ScheduleTypeEnum scheduleType;
+    global String listValue;
+    global Integer startValue;
+    global Integer endValue;
+    global Integer increment;
+    global Integer nth;
 
     //Construtor for Hours, Months, Years, Day of Month
-    public CronInfo(
+    global CronInfo(
       TimeTypeEnum timeType,
       ScheduleTypeEnum scheduleType,
       Integer startValue,
@@ -117,7 +117,7 @@ public without sharing class SchedularStringBuilder {
       this.increment = increment;
     }
 
-    public CronInfo(
+    global CronInfo(
       TimeTypeEnum timeType,
       ScheduleTypeEnum scheduleType,
       Integer startValue,
