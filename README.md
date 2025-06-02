@@ -8,3 +8,6 @@ Cron String Builder is a simple component for building the schedule string requr
 > sf package version create --package "CronString" --wait 10 --installation-key-bypass
 
 Unlocked Packaging Workflow: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_unlocked_pkg_workflow.htm
+
+## Install package from URL
+<url>/packaging/installPackage.apexp?p0=<04t id>
